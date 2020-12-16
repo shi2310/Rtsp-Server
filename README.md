@@ -1,12 +1,15 @@
 # monitoring
+
 监控项目
 
 ❗ 你不需要手动下载配置 ~~ffmpeg.exe~~
 
-## Server端
-基于nodejs，express+express-ws+@ffmpeg-installer/ffmpeg+child_process
+## Server 端
 
-## Vue端
+基于 nodejs，express+express-ws+@ffmpeg-installer/ffmpeg+child_process
+
+## Vue 端
+
 在 public/index.html 页中引入
 
 ```javascript
@@ -17,14 +20,12 @@ VideoPlayer.vue 组件
 
 ```html
 <template>
-  <div class="canvas-wrapper" id="canvas-wrapper">
-    <canvas></canvas>
-  </div>
+  <div class="canvas-wrapper" id="canvas-wrapper"></div>
 </template>
 <script>
   export default {
-    name: 'VideoPlayer',
-    props: ['src'],
+    name: "VideoPlayer",
+    props: ["src"],
     data() {
       return {
         player: null,
@@ -53,12 +54,16 @@ VideoPlayer.vue 组件
         if (!url) {
           return;
         }
-        console.log('playing url:', url);
+        console.log("playing url:", url);
 
-        let canvas = this.$el.getElementsByTagName('canvas')[0];
+        let canvas = this.$el.getElementsByTagName("canvas")[0];
         if (!canvas) {
-          const canvasWrapper = document.getElementById('canvas-wrapper');
-          canvas = document.createElement('canvas');
+          const canvasWrapper = document.getElementById("canvas-wrapper");
+          canvas = document.createElement("canvas");
+          canvas.style.width = "auto";
+          canvas.style.maxHeight = "100%";
+          canvas.style.zIndex = "9999";
+          canvas.style.background = "none";
           canvasWrapper.appendChild(canvas);
         }
 
@@ -82,13 +87,6 @@ VideoPlayer.vue 组件
     display: flex;
     justify-content: center;
     align-items: center;
-
-    canvas {
-      z-index: 9999;
-      width: auto;
-      max-height: 100%;
-      background-color: #000;
-    }
   }
 </style>
 ```

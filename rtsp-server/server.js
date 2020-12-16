@@ -4,11 +4,12 @@ import ffmpeg from '@ffmpeg-installer/ffmpeg';
 import { spawn } from 'child_process';
 
 const ffmpegPath = ffmpeg.path;
+let wsInstance;
 
 function localServer() {
     let app = express();
     // extend express app with app.ws()
-    expressWebSocket(app, null, {
+    if (!wsInstance) wsInstance = expressWebSocket(app, null, {
         perMessageDeflate: true
     });
     app.ws("/rtsp", rtspRequestHandle)
@@ -20,6 +21,9 @@ function rtspRequestHandle(ws, req) {
     let url = req.query.url;
     if (!url) throw new Error('URL to rtsp stream is required');
     console.log("rtsp url:", url);
+
+    // const wsServer = wsInstance.getWss();
+    // console.log(wsServer.clients);
 
     // these should be detected from the source stream
     const [width, height] = [0, 0];
@@ -55,7 +59,7 @@ function rtspRequestHandle(ws, req) {
     );
 
     shell.stdout.on('data', (data, opts) => {
-        console.log(data);
+        // console.log(data);
         if (ws.readyState === 1) ws.send(data, opts);
     })
     shell.stderr.on('error', (e) => console.log('err:error', e));

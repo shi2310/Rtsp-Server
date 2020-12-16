@@ -42,6 +42,10 @@ body {
   text-decoration: none;
 }
 
+.ant-divider-horizontal {
+  margin: 14px 0;
+}
+
 /*修改滚动条样式*/
 div::-webkit-scrollbar {
   width: 5px;
