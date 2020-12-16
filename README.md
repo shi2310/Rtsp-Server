@@ -6,7 +6,7 @@
 ## Server端
 基于nodejs，express+express-ws+@ffmpeg-installer/ffmpeg+child_process
 
-## vue端
+## Vue端
 在 public/index.html 页中引入
 
 ```javascript
