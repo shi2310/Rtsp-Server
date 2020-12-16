@@ -1,0 +1,42 @@
+{
+  "name": "rtsp-relay",
+  "version": "0.0.0",
+  "author": "XinPing Wang <xinping.wang@hotmail.com>",
+  "description": "Relay RTSP streams through WebSocket",
+  "repository": "https://github.com/open-flex/rtsp-relay",
+  "type": "module",
+  "keywords": [
+    "rtsp",
+    "rtsp-stream",
+    "stream",
+    "express",
+    "websocket",
+    "ws",
+    "ffmpeg",
+    "jsmpeg"
+  ],
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "express-ws": "^4.0.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,js}": [
+      "prettier --write"
+    ]
+  }
+}
