@@ -1,7 +1,7 @@
 # monitoring
 监控项目
 
-❗ 你不需要手动安装 ~~ffmpeg.exe~~
+❗ 你不需要手动下载配置 ~~ffmpeg.exe~~
 
 ## Server端
 基于nodejs，express+express-ws+@ffmpeg-installer/ffmpeg+child_process
