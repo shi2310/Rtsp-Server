@@ -20,7 +20,9 @@ VideoPlayer.vue 组件
 
 ```html
 <template>
-  <div class="canvas-wrapper" id="canvas-wrapper"></div>
+  <div class="canvas-wrapper" id="canvas-wrapper">
+    <canvas></canvas>
+  </div>
 </template>
 <script>
   export default {
@@ -60,9 +62,9 @@ VideoPlayer.vue 组件
         if (!canvas) {
           const canvasWrapper = document.getElementById("canvas-wrapper");
           canvas = document.createElement("canvas");
+          canvas.style.zIndex = "9999";
           canvas.style.width = "auto";
           canvas.style.maxHeight = "100%";
-          canvas.style.zIndex = "9999";
           canvas.style.background = "none";
           canvasWrapper.appendChild(canvas);
         }
@@ -87,6 +89,13 @@ VideoPlayer.vue 组件
     display: flex;
     justify-content: center;
     align-items: center;
+
+    canvas {
+      z-index: 9999;
+      width: auto;
+      max-height: 100%;
+      background: none;
+    }
   }
 </style>
 ```
