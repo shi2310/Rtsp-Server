@@ -33,7 +33,7 @@ function rtspRequestHandle(ws, req) {
     streamHeader.writeUInt16BE(height, 6);
     ws.send(streamHeader, { binary: true });
 
-    // ffmpet转码
+    // ffmpeg转码
     let shell = spawn(
         ffmpegPath,
         [
