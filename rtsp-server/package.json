@@ -1,9 +1,9 @@
 {
   "name": "rtsp-relay",
   "version": "0.0.0",
-  "author": "XinPing Wang <xinping.wang@hotmail.com>",
+  "author": "Arrow",
   "description": "Relay RTSP streams through WebSocket",
-  "repository": "https://github.com/open-flex/rtsp-relay",
+  "repository": "https://github.com/shi2310/Rtsp-Server.git",
   "type": "module",
   "keywords": [
     "rtsp",
